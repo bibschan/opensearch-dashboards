@@ -1,0 +1,321 @@
+[
+  {
+  "backend_name": "Git",
+  "backend_version": "0.12.0",
+  "perceval_version": "0.13.0",
+  "timestamp": 1586671647.853214,
+  "origin": "https://github.com/chaoss/grimoirelab-perceval",
+  "uuid": "e2c35296ba4bd579c65a94a7c7bdfc6e96434200",
+  "updated_on": 1459351209,
+  "classified_fields_filtered": null,
+  "category": "commit",
+  "search_fields": {
+    "item_id": "1461ef5b5de821a0bf3c4542589a96e90a959718"
+  },
+  "tag": "https://github.com/chaoss/grimoirelab-perceval",
+  "data": {
+    "commit": "1461ef5b5de821a0bf3c4542589a96e90a959718",
+    "parents": [
+      "8ea5457766ab9fe699796b8fa937df607a5a8bbc"
+    ],
+    "refs": [],
+    "Author": "Santiago Dueñas <sduenas@bitergia.com>",
+    "AuthorDate": "Wed Mar 30 17:20:09 2016 +0200",
+    "Commit": "Santiago Dueñas <sduenas@bitergia.com>",
+    "CommitDate": "Wed Mar 30 17:20:09 2016 +0200",
+    "message": "[utils] Fix wrong timezone in unixtime_to_datetime()\n\nFunction datetime.datetime.fromtimestamp() creates a\nnew datetime object from an epoch value but using\nthe timezone of the system. Replacing this function\nby datetime.datetime.utcfromtimestamp() returns\na datetime with UTC timezone.",
+    "files": [
+      {
+        "modes": [
+          "100644",
+          "100644"
+        ],
+        "indexes": [
+          "5b316a5",
+          "1238aa1"
+        ],
+        "action": "M",
+        "file": "perceval/utils.py",
+        "added": "1",
+        "removed": "1"
+      },
+      {
+        "modes": [
+          "100644",
+          "100644"
+        ],
+        "indexes": [
+          "ef476d2",
+          "6cda5f6"
+        ],
+        "action": "M",
+        "file": "tests/test_utils.py",
+        "added": "2",
+        "removed": "2"
+      }
+    ]
+  },
+  "metadata__updated_on": "2016-03-30T15:20:09+00:00",
+  "metadata__timestamp": "2020-04-12T06:07:27.853214+00:00"
+  },
+  {
+  "backend_name": "Git",
+  "backend_version": "0.12.0",
+  "perceval_version": "0.13.0",
+  "timestamp": 1586671647.854481,
+  "origin": "https://github.com/chaoss/grimoirelab-perceval",
+  "uuid": "8b1ba211339e6c3730182b862a0ab53a7e0b4838",
+  "updated_on": 1459853963,
+  "classified_fields_filtered": null,
+  "category": "commit",
+  "search_fields": {
+    "item_id": "8735246751ddefd007d4dd647d3cbe7aeac6919e"
+    },
+  "tag": "https://github.com/chaoss/grimoirelab-perceval",
+  "data": {
+    "commit": "8735246751ddefd007d4dd647d3cbe7aeac6919e",
+    "parents": [
+      "2eec2cf82d794ea0d0e7c74223e88c3dee78cc5c"
+    ],
+    "refs": [],
+    "Author": "Santiago Dueñas <sduenas@bitergia.com>",
+    "AuthorDate": "Tue Apr 5 12:59:23 2016 +0200",
+    "Commit": "Santiago Dueñas <sduenas@bitergia.com>",
+    "CommitDate": "Tue Apr 5 12:59:23 2016 +0200",
+    "message": "[utils] Parse dates with parentheses sections\n\nSo far, dates like 'Wed, 26 Oct 2005 15:20:32 -0100 (GMT+1)'\nraised an error when they were parsed due the parentheses\nsection. This patch removes the section making the parsing\npossible.",
+    "files": [
+      {
+        "modes": [
+          "100644",
+          "100644"
+        ],
+        "indexes": [
+          "1238aa1",
+          "51aaecd"
+        ],
+        "action": "M",
+        "file": "perceval/utils.py",
+        "added": "5",
+        "removed": "0"
+      },
+      {
+        "modes": [
+          "100644",
+          "100644"
+        ],
+        "indexes": [
+          "6cda5f6",
+          "1700724"
+        ],
+        "action": "M",
+        "file": "tests/test_utils.py",
+        "added": "12",
+        "removed": "0"
+      }
+    ]
+  },
+  "metadata__updated_on": "2016-04-05T10:59:23+00:00",
+  "metadata__timestamp": "2020-04-12T06:07:27.854481+00:00"
+  },
+  {
+  "backend_name": "Git",
+  "backend_version": "0.12.0",
+  "perceval_version": "0.13.0",
+  "timestamp": 1586671647.855509,
+  "origin": "https://github.com/chaoss/grimoirelab-perceval",
+  "uuid": "6d80881abfb62d37539d0a756d7372607c1bbcfa",
+  "updated_on": 1459985324,
+  "classified_fields_filtered": null,
+  "category": "commit",
+  "search_fields": {
+    "item_id": "53efc14001c806f0452a8fa3c38a640075515561"
+  },
+  "tag": "https://github.com/chaoss/grimoirelab-perceval",
+  "data": {
+    "commit": "53efc14001c806f0452a8fa3c38a640075515561",
+    "parents": [
+      "13a21eba7965f48c472f68df5cb3c50942fbe610"
+    ],
+    "refs": [],
+    "Author": "Santiago Dueñas <sduenas@bitergia.com>",
+    "AuthorDate": "Thu Apr 7 01:28:44 2016 +0200",
+    "Commit": "Santiago Dueñas <sduenas@bitergia.com>",
+    "CommitDate": "Thu Apr 7 01:28:44 2016 +0200",
+    "message": "[mbox] Add option to retrieve messages since a given date\nThe backend still parses the full mbox but ignores those\nmessages sent before the given date.",
+    "files": [
+      {
+        "modes": [
+          "100644",
+          "100644"
+        ],
+        "indexes": [
+          "b099a0a",
+          "36cb216"
+        ],
+        "action": "M",
+        "file": "perceval/backends/mbox.py",
+        "added": "26",
+        "removed": "9"
+      },
+      {
+        "modes": [
+          "100644",
+          "100644"
+        ],
+        "indexes": [
+          "6dd833e",
+          "14357ef"
+        ],
+        "action": "M",
+        "file": "tests/test_mbox.py",
+        "added": "24",
+        "removed": "0"
+      }
+    ]
+  },
+  "metadata__updated_on": "2016-04-06T23:28:44+00:00",
+  "metadata__timestamp": "2020-04-12T06:07:27.855509+00:00"
+  },
+  {
+  "backend_name": "Git",
+  "backend_version": "0.12.0",
+  "perceval_version": "0.13.0",
+  "timestamp": 1586671647.857199,
+  "origin": "https://github.com/chaoss/grimoirelab-perceval",
+  "uuid": "efd3d4c33e787ea4f3e2c8c888628b7765f6e881",
+  "updated_on": 1461606895,
+  "classified_fields_filtered": null,
+  "category": "commit",
+  "search_fields": {
+    "item_id": "f318f1c1745b80e821c7f36459fa96194195c078"
+  },
+  "tag": "https://github.com/chaoss/grimoirelab-perceval",
+  "data": {
+    "commit": "f318f1c1745b80e821c7f36459fa96194195c078",
+    "parents": [
+      "9cd36888ded8a7524d9293a2af0d1bf89b8e9e45"
+    ],
+    "refs": [],
+    "Author": "Santiago Dueñas <sduenas@bitergia.com>",
+    "AuthorDate": "Mon Apr 25 19:50:56 2016 +0200",
+    "Commit": "Santiago Dueñas <sduenas@bitergia.com>",
+    "CommitDate": "Mon Apr 25 19:54:55 2016 +0200",
+    "message": "[backend] Add option to set the origin value",
+    "files": [
+      {
+        "modes": [
+          "100644",
+          "100644"
+        ],
+        "indexes": [
+          "aef6af7",
+          "51b7948"
+        ],
+        "action": "M",
+        "file": "perceval/backend.py",
+        "added": "2",
+        "removed": "0"
+      },
+      {
+        "modes": [
+          "100644",
+          "100644"
+        ],
+        "indexes": [
+          "3f73216",
+          "f94c229"
+        ],
+        "action": "M",
+        "file": "tests/test_backend.py",
+        "added": "2",
+        "removed": "1"
+      }
+    ]
+  },
+  "metadata__updated_on": "2016-04-25T17:54:55+00:00",
+  "metadata__timestamp": "2020-04-12T06:07:27.857199+00:00"
+  },
+  {
+  "backend_name": "Git",
+  "backend_version": "0.12.0",
+  "perceval_version": "0.13.0",
+  "timestamp": 1586671647.859997,
+  "origin": "https://github.com/chaoss/grimoirelab-perceval",
+  "uuid": "c3c995de9b6605f730da81b431cb00bcfe795428",
+  "updated_on": 1461799972,
+  "classified_fields_filtered": null,
+  "category": "commit",
+  "search_fields": {
+    "item_id": "8612ac3b527991d3c6c87e9147425f78bb590d17"
+  },
+  "tag": "https://github.com/chaoss/grimoirelab-perceval",
+  "data": {
+    "commit": "8612ac3b527991d3c6c87e9147425f78bb590d17",
+    "parents": [
+      "91ad3823f59508238fe34adbdf27ed12d56cf21e"
+    ],
+    "refs": [],
+    "Author": "Alvaro del Castillo <acs@bitergia.com>",
+    "AuthorDate": "Tue Apr 26 14:44:48 2016 +0200",
+    "Commit": "Santiago Dueñas <sduenas@bitergia.com>",
+    "CommitDate": "Thu Apr 28 01:32:52 2016 +0200",
+    "message": "[github] Improve logs when rate limit is reached.",
+    "files": [
+      {
+        "modes": [
+          "100644",
+          "100644"
+        ],
+        "indexes": [
+          "27505ea",
+          "b26a702"
+        ],
+        "action": "M",
+        "file": "perceval/backends/github.py",
+        "added": "2",
+        "removed": "2"
+      }
+    ]
+  },
+  "metadata__updated_on": "2016-04-27T23:32:52+00:00",
+  "metadata__timestamp": "2020-04-12T06:07:27.859997+00:00"
+  },
+  {
+  "backend_name": "Git",
+  "backend_version": "0.12.0",
+  "perceval_version": "0.13.0",
+  "timestamp": 1586671647.860489,
+  "origin": "https://github.com/chaoss/grimoirelab-perceval",
+  "uuid": "f82b458a517b1ac5f7027bb987747bbd18206a08",
+  "updated_on": 1461800288,
+  "classified_fields_filtered": null,
+  "category": "commit",
+  "search_fields": {
+    "item_id": "106b206956976dbc02604157963493a3eea920b9"
+  },
+  "tag": "https://github.com/chaoss/grimoirelab-perceval",
+  "data": {
+    "commit": "106b206956976dbc02604157963493a3eea920b9",
+    "parents": [
+      "bc2275f82ce494d10985ea5539cfae5a1fbfce31",
+      "3e6a60a4923c63bc1de993f844c3b81c5c7c4d54"
+    ],
+    "refs": [],
+    "Merge": "bc2275f 3e6a60a",
+    "Author": "Santiago Dueñas <sduenas@bitergia.com>",
+    "AuthorDate": "Thu Apr 28 01:38:08 2016 +0200",
+    "Commit": "Santiago Dueñas <sduenas@bitergia.com>",
+    "CommitDate": "Thu Apr 28 01:38:08 2016 +0200",
+    "message": "Merge branch 'githug-rate' of 'git://github.com/acs/perceval.git'",
+    "files": [
+      {
+        "file": "perceval/backends/github.py",
+        "added": "59",
+        "removed": "23"
+      }
+    ]
+  },
+  "metadata__updated_on": "2016-04-27T23:38:08+00:00",
+  "metadata__timestamp": "2020-04-12T06:07:27.860489+00:00"
+  }
+]

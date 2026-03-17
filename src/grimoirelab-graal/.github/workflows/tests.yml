@@ -1,0 +1,79 @@
+name: tests
+
+on:
+  workflow_dispatch:
+
+
+jobs:
+  tests:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.10', '3.11', '3.12', '3.13']
+
+    name: Python ${{ matrix.python-version }}
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@82c7e631bb3cdc910f68e0081d67478d79c6982d # v5.1.0
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install Poetry
+        run: |
+          pipx install poetry
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@354a1ad156761f5ee2b7b13fa8e09943a5e8d252 # v1.229.0
+        with:
+          ruby-version: 2.6
+
+      - name: Set up Go
+        uses: actions/setup-go@c4a742cab115ed795e34d4513e2cf7d472deb55f # v3.3.1
+        with:
+          go-version: '^1.17'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          poetry install
+          poetry run pip install -r requirements_dev.txt
+          gem install github-linguist -v 7.15
+          wget https://github.com/fossology/fossology/releases/download/4.5.1/FOSSology-4.5.1-ubuntu-noble.tar.gz
+          tar -xzf FOSSology-4.5.1-ubuntu-noble.tar.gz
+          sudo apt-get update -y
+          sudo apt-get -y install ./packages/fossology-common_4.5.1-1_amd64.deb \
+                                  ./packages/fossology-nomos_4.5.1-1_amd64.deb
+          sudo apt-get install cloc
+
+      - name: Install requirements
+        run: |
+          mkdir exec
+          cd exec
+          go install github.com/boyter/scc@latest
+          cd $GITHUB_WORKSPACE/exec/
+          git clone https://github.com/nexB/scancode-toolkit.git
+          cd scancode-toolkit
+          ./scancode --help
+          cd $GITHUB_WORKSPACE/exec/
+          wget https://github.com/crossminer/crossJadolint/releases/download/Pre-releasev2/jadolint.jar
+          cd $GITHUB_WORKSPACE/
+
+      - name: Lint with flake8
+        run: |
+          poetry run flake8 --exclude=exec,src
+
+      - name: Tests and Coverage
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd tests
+          poetry run coverage run --source=graal run_tests.py
+      - name: Coveralls
+        uses: coverallsapp/github-action@643bc377ffa44ace6394b2b5d0d3950076de9f63 # v2.3.0
+        with:
+          coverage-reporter-version: "v0.6.9"
+          flag-name: run ${{ join(matrix.*, ' - ') }}
+          parallel: true

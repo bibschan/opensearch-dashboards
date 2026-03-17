@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -k -u admin:GrimoireLab.1 -X GET 'https://localhost:9200/git_demo_enriched/_search?size=5' -H 'Content-Type: application/json' -d '{\n  \"\"query\"\": {\n    \"\"bool\"\": {\n      \"\"should\"\": [\n        {\"\"match\"\": {\"\"author_email\"\": \"\"jztenk@gmail.com\"\"}},\n        {\"\"match\"\": {\"\"author_name\"\": \"\"Max K\"\"}},\n        {\"\"match\"\": {\"\"author_uuid\"\": \"\"57089f3469a464706a0046252c989013670b807b\"\"}}\n      ]\n    }\n  },\n  \"\"_source\"\": [\"\"author_name\"\", \"\"author_email\"\", \"\"author_uuid\"\", \"\"origin\"\", \"\"hash\"\", \"\"message\"\", \"\"grimoire_creation_date\"\", \"\"project\"\"]\n}')",
+      "Bash(curl -k -u admin:GrimoireLab.1 -X GET 'https://localhost:9200/github_demo_enriched/_search?size=5' -H 'Content-Type: application/json' -d '{\n  \"\"query\"\": {\n    \"\"bool\"\": {\n      \"\"should\"\": [\n        {\"\"match\"\": {\"\"author_email\"\": \"\"jztenk@gmail.com\"\"}},\n        {\"\"match\"\": {\"\"author_name\"\": \"\"Max K\"\"}},\n        {\"\"match\"\": {\"\"author_uuid\"\": \"\"57089f3469a464706a0046252c989013670b807b\"\"}}\n      ]\n    }\n  },\n  \"\"_source\"\": [\"\"author_name\"\", \"\"author_email\"\", \"\"author_uuid\"\", \"\"repository\"\", \"\"pull_request\"\", \"\"grimoire_creation_date\"\", \"\"project\"\"]\n}')"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
