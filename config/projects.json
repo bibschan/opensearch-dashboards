@@ -1,5 +1,19 @@
 {
   "interledger-community": {
+    "slack": [
+      "https://interledger.slack.com C0AL5N7UT99",
+      "https://interledger.slack.com announcements",
+      "https://interledger.slack.com community-events",
+      "https://interledger.slack.com documentation",
+      "https://interledger.slack.com es-hackathons",
+      "https://interledger.slack.com general",
+      "https://interledger.slack.com github",
+      "https://interledger.slack.com rafiki",
+      "https://interledger.slack.com webmonetization",
+      "https://interledger.slack.com hackathons",
+      "https://interledger.slack.com interledger-platzi",
+      "https://interledger.slack.com open-payments"
+    ],
     "github": [
       "https://github.com/interledger/.github",
       "https://github.com/interledger/WM2-Glitch-exclusive-content-basic",
@@ -151,6 +165,9 @@
       "https://github.com/interledger/web-monetization-wordpress-plugin",
       "https://github.com/interledger/webmonetization.dev",
       "https://github.com/interledger/writer-tech-test"
+    ],
+    "events": [
+      "/home/grimoire/conf/events"
     ]
   }
 }
