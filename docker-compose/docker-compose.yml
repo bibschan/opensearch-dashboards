@@ -60,10 +60,10 @@ services:
         - ../config/setup.cfg:/home/grimoire/conf/setup.cfg
         - ../config/projects.json:/home/grimoire/conf/projects.json
         - ../data/events:/home/grimoire/conf/events
-        - ../src/grimoirelab-perceval/perceval/backends/core/events.py:/usr/local/lib/python3.12/dist-packages/perceval/backends/core/events.py
-        - ../src/grimoirelab-elk/grimoire_elk/enriched/events.py:/usr/local/lib/python3.12/dist-packages/grimoire_elk/enriched/events.py
-        - ../src/grimoirelab-elk/grimoire_elk/raw/events.py:/usr/local/lib/python3.12/dist-packages/grimoire_elk/raw/events.py
-        - ../src/grimoirelab-elk/grimoire_elk/utils.py:/usr/local/lib/python3.12/dist-packages/grimoire_elk/utils.py
+        - ../src/grimoirelab-perceval/perceval/backends/core/events.py:/usr/local/lib/python3.12/site-packages/perceval/backends/core/events.py
+        - ../src/grimoirelab-elk/grimoire_elk/enriched/events.py:/usr/local/lib/python3.12/site-packages/grimoire_elk/enriched/events.py
+        - ../src/grimoirelab-elk/grimoire_elk/raw/events.py:/usr/local/lib/python3.12/site-packages/grimoire_elk/raw/events.py
+        - ../src/grimoirelab-elk/grimoire_elk/utils.py:/usr/local/lib/python3.12/site-packages/grimoire_elk/utils.py
         - /tmp/:/home/grimoire/logs
       depends_on:
         nginx:
