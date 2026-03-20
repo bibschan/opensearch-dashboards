@@ -43,6 +43,7 @@ from perceval.backends.core.bugzillarest import BugzillaREST, BugzillaRESTComman
 from perceval.backends.core.confluence import Confluence, ConfluenceCommand
 from perceval.backends.core.discourse import Discourse, DiscourseCommand
 from perceval.backends.core.dockerhub import DockerHub, DockerHubCommand
+from perceval.backends.core.events import Events, EventsCommand
 from perceval.backends.core.gerrit import Gerrit, GerritCommand
 from perceval.backends.core.git import Git, GitCommand
 from perceval.backends.core.github import GitHub, GitHubCommand
@@ -91,6 +92,7 @@ from .enriched.confluence import ConfluenceEnrich
 from .enriched.crates import CratesEnrich
 from .enriched.discourse import DiscourseEnrich
 from .enriched.dockerhub import DockerHubEnrich
+from .enriched.events import EventsEnrich
 from .enriched.functest import FunctestEnrich
 from .enriched.gerrit import GerritEnrich
 from .enriched.git import GitEnrich
@@ -135,6 +137,7 @@ from .raw.crates import CratesOcean
 from .raw.discourse import DiscourseOcean
 from .raw.dockerhub import DockerHubOcean
 from .raw.elastic import ElasticOcean
+from .raw.events import EventsOcean
 from .raw.functest import FunctestOcean
 from .raw.gerrit import GerritOcean
 from .raw.git import GitOcean
@@ -238,6 +241,7 @@ def get_connectors():
                   "crates": [Crates, CratesOcean, CratesEnrich, CratesCommand],
                   "discourse": [Discourse, DiscourseOcean, DiscourseEnrich, DiscourseCommand],
                   "dockerhub": [DockerHub, DockerHubOcean, DockerHubEnrich, DockerHubCommand],
+                  "events": [Events, EventsOcean, EventsEnrich, EventsCommand],
                   "functest": [Functest, FunctestOcean, FunctestEnrich, FunctestCommand],
                   "gerrit": [Gerrit, GerritOcean, GerritEnrich, GerritCommand],
                   "git": [Git, GitOcean, GitEnrich, GitCommand],
