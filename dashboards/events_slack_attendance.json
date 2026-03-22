@@ -1,0 +1,96 @@
+{
+  "dashboard": {
+    "id": "Events-Slack-Attendance",
+    "value": {
+      "description": "Analysis of which event attendees joined the Slack workspace",
+      "hits": 0,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\": {\"language\": \"lucene\", \"query\": \"*\"}, \"version\": true, \"filter\": [], \"highlightAll\": true}"
+      },
+      "optionsJSON": "{\"darkTheme\":false,\"useMargins\":true}",
+      "panelsJSON": "[{\"gridData\": {\"h\": 8, \"i\": \"1\", \"w\": 12, \"x\": 0, \"y\": 0}, \"id\": \"events_slack_pie\", \"panelIndex\": \"1\", \"title\": \"Attendees in Slack vs Not in Slack\", \"type\": \"visualization\", \"version\": \"2.0.0\"}, {\"gridData\": {\"h\": 8, \"i\": \"2\", \"w\": 12, \"x\": 12, \"y\": 0}, \"id\": \"events_slack_by_event\", \"panelIndex\": \"2\", \"title\": \"Slack Members by Event\", \"type\": \"visualization\", \"version\": \"2.0.0\"}, {\"gridData\": {\"h\": 10, \"i\": \"3\", \"w\": 24, \"x\": 0, \"y\": 8}, \"id\": \"events_slack_table\", \"panelIndex\": \"3\", \"title\": \"Event Attendees Details\", \"type\": \"visualization\", \"version\": \"2.0.0\"}, {\"gridData\": {\"h\": 8, \"i\": \"4\", \"w\": 12, \"x\": 0, \"y\": 18}, \"id\": \"events_slack_metrics\", \"panelIndex\": \"4\", \"title\": \"Summary Metrics\", \"type\": \"visualization\", \"version\": \"2.0.0\"}, {\"gridData\": {\"h\": 8, \"i\": \"5\", \"w\": 12, \"x\": 12, \"y\": 18}, \"id\": \"events_slack_timeline\", \"panelIndex\": \"5\", \"title\": \"Events Over Time\", \"type\": \"visualization\", \"version\": \"2.0.0\"}]",
+      "release_date": "2026-03-21T00:00:00.000000",
+      "timeRestore": false,
+      "title": "Events - Slack Attendance",
+      "uiStateJSON": "{}",
+      "version": 1
+    }
+  },
+  "searches": [],
+  "index_patterns": [
+    {
+      "id": "events_slack_matched",
+      "value": {
+        "title": "events_slack_matched",
+        "timeFieldName": "metadata__timestamp"
+      }
+    }
+  ],
+  "visualizations": [
+    {
+      "id": "events_slack_pie",
+      "value": {
+        "description": "Distribution of attendees by Slack membership",
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": "{\"index\":\"events_slack_matched\",\"query\":{\"query\":\"*\",\"language\":\"lucene\"},\"filter\":[]}"
+        },
+        "title": "events_slack_pie",
+        "uiStateJSON": "{}",
+        "version": 1,
+        "visState": "{\"title\":\"Attendees in Slack vs Not in Slack\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"isDonut\":true,\"legendPosition\":\"right\",\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"Attendees\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"matched_in_slack\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"In Slack\"}}]}"
+      }
+    },
+    {
+      "id": "events_slack_by_event",
+      "value": {
+        "description": "Slack members count by event",
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": "{\"index\":\"events_slack_matched\",\"query\":{\"query\":\"*\",\"language\":\"lucene\"},\"filter\":[]}"
+        },
+        "title": "events_slack_by_event",
+        "uiStateJSON": "{}",
+        "version": 1,
+        "visState": "{\"title\":\"Slack Members by Event\",\"type\":\"histogram\",\"params\":{\"type\":\"histogram\",\"grid\":{\"categoryLines\":false},\"categoryAxes\":[{\"id\":\"CategoryAxis-1\",\"type\":\"category\",\"position\":\"bottom\",\"show\":true,\"style\":{},\"scale\":{\"type\":\"linear\"},\"labels\":{\"show\":true,\"filter\":true,\"truncate\":100},\"title\":{}}],\"valueAxes\":[{\"id\":\"ValueAxis-1\",\"name\":\"LeftAxis-1\",\"type\":\"value\",\"position\":\"left\",\"show\":true,\"style\":{},\"scale\":{\"type\":\"linear\",\"mode\":\"normal\"},\"labels\":{\"show\":true,\"rotate\":0,\"filter\":false,\"truncate\":100},\"title\":{\"text\":\"Count\"}}],\"seriesParams\":[{\"show\":true,\"type\":\"histogram\",\"mode\":\"stacked\",\"data\":{\"label\":\"Count\",\"id\":\"1\"},\"valueAxis\":\"ValueAxis-1\",\"drawLinesBetweenPoints\":true,\"lineWidth\":2,\"showCircles\":true}],\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"times\":[],\"addTimeMarker\":false,\"labels\":{\"show\":false},\"thresholdLine\":{\"show\":false,\"value\":10,\"width\":1,\"style\":\"full\",\"color\":\"#E7664C\"}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"event_name\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Event\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"matched_in_slack\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"In Slack\"}}]}"
+      }
+    },
+    {
+      "id": "events_slack_table",
+      "value": {
+        "description": "Detailed list of event attendees",
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": "{\"index\":\"events_slack_matched\",\"query\":{\"query\":\"*\",\"language\":\"lucene\"},\"filter\":[]}"
+        },
+        "title": "events_slack_table",
+        "uiStateJSON": "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null},\"config\":{\"searchKeyword\":\"\"}}}}",
+        "version": 1,
+        "visState": "{\"title\":\"Event Attendees Details\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMetricsAtAllLevels\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"showTotal\":false,\"totalFunc\":\"sum\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"Count\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"attendee_name.keyword\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Name\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"email\",\"size\":1,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Email\"}},{\"id\":\"4\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"event_name\",\"size\":1,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Event\"}},{\"id\":\"5\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"matched_in_slack\",\"size\":1,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"In Slack\"}},{\"id\":\"6\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"slack_real_name.keyword\",\"size\":1,\"order\":\"desc\",\"orderBy\":\"1\",\"missingBucket\":true,\"missingBucketLabel\":\"N/A\",\"customLabel\":\"Slack Name\"}}]}"
+      }
+    },
+    {
+      "id": "events_slack_metrics",
+      "value": {
+        "description": "Summary metrics",
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": "{\"index\":\"events_slack_matched\",\"query\":{\"query\":\"*\",\"language\":\"lucene\"},\"filter\":[]}"
+        },
+        "title": "events_slack_metrics",
+        "uiStateJSON": "{}",
+        "version": 1,
+        "visState": "{\"title\":\"Summary Metrics\",\"type\":\"metric\",\"params\":{\"fontSize\":\"12\",\"metric\":{\"useRanges\":false,\"metricColorMode\":\"None\",\"labels\":{\"show\":true},\"colorSchema\":\"Green to Red\",\"percentageMode\":false,\"colorsRange\":[{\"to\":10000,\"from\":0}],\"invertColors\":false,\"style\":{\"fontSize\":\"12\",\"bgFill\":\"#000\",\"subText\":\"\",\"labelColor\":false,\"bgColor\":false}},\"addTooltip\":true,\"addLegend\":false,\"type\":\"metric\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"Total Attendees\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"In Slack\"},\"filter\":{\"query\":\"matched_in_slack:true\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"cardinality\",\"schema\":\"metric\",\"params\":{\"field\":\"event_name\",\"customLabel\":\"# Events\"}}]}"
+      }
+    },
+    {
+      "id": "events_slack_timeline",
+      "value": {
+        "description": "Events timeline",
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": "{\"index\":\"events_slack_matched\",\"query\":{\"query\":\"*\",\"language\":\"lucene\"},\"filter\":[]}"
+        },
+        "title": "events_slack_timeline",
+        "uiStateJSON": "{}",
+        "version": 1,
+        "visState": "{\"title\":\"Events Over Time\",\"type\":\"histogram\",\"params\":{\"type\":\"histogram\",\"grid\":{\"categoryLines\":false},\"categoryAxes\":[{\"id\":\"CategoryAxis-1\",\"type\":\"category\",\"position\":\"bottom\",\"show\":true,\"style\":{},\"scale\":{\"type\":\"linear\"},\"labels\":{\"show\":true,\"filter\":true,\"truncate\":100},\"title\":{}}],\"valueAxes\":[{\"id\":\"ValueAxis-1\",\"name\":\"LeftAxis-1\",\"type\":\"value\",\"position\":\"left\",\"show\":true,\"style\":{},\"scale\":{\"type\":\"linear\",\"mode\":\"normal\"},\"labels\":{\"show\":true,\"rotate\":0,\"filter\":false,\"truncate\":100},\"title\":{\"text\":\"Count\"}}],\"seriesParams\":[{\"show\":true,\"type\":\"histogram\",\"mode\":\"normal\",\"data\":{\"label\":\"Count\",\"id\":\"1\"},\"valueAxis\":\"ValueAxis-1\",\"drawLinesBetweenPoints\":true,\"lineWidth\":2,\"showCircles\":true}],\"addTooltip\":true,\"addLegend\":false,\"legendPosition\":\"right\",\"times\":[],\"addTimeMarker\":false,\"labels\":{\"show\":false},\"thresholdLine\":{\"show\":false,\"value\":10,\"width\":1,\"style\":\"full\",\"color\":\"#E7664C\"}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"event_created_at\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{},\"customLabel\":\"Date\"}}]}"
+      }
+    }
+  ]
+}
